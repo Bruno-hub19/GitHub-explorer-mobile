@@ -11,7 +11,7 @@ export const RepositoryHeader = styled.View`
   width: 100%;
   padding: 10px 0;
   border-bottom-width: 2px;
-  border-color: #232325;
+  border-color: #a5a5a5;
   align-items: center;
 `;
 
@@ -26,7 +26,8 @@ export const RepositoryAvatar = styled.View`
 export const RepositoryFullName = styled.Text`
   color: #f0f0f7;
   font-family: 'Roboto-Medium';
-  font-size: 23px;
+  font-size: 20px;
+  text-align: center;
 `;
 
 export const RepositoryOwner = styled.Text`
@@ -62,4 +63,27 @@ export const EntityCount = styled.Text`
   font-family: 'Roboto-Medium';
   color: #f0f0f7;
   font-size: 22px;
+`;
+
+export const IssueItem = styled.TouchableOpacity`
+  width: 100%;
+  padding: 10px;
+  background: #232325;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const IssueTitle = styled.Text`
+  font-family: 'Roboto-Medium';
+  color: #f0f0f7;
+  font-size: 16px;
+  margin-bottom: 10px;
+`;
+
+export const IssueUser = styled.Text`
+  font-family: 'Roboto-Regular';
+  color: #a5a5a5;
+  font-size: 13px;
 `;

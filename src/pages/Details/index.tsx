@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Image } from 'react-native';
+import { Image, FlatList } from 'react-native';
 import { useRoute, Route } from '@react-navigation/native';
 
 import api from '../../services/api';
@@ -15,8 +15,16 @@ import {
   RepositoryIssues,
   EntityTitle,
   EntityCount,
+  IssueItem,
+  IssueTitle,
+  IssueUser,
 } from './styles';
 
+interface DetailsRouteParams extends Route<string> {
+  params: {
+    repositoryFullName: string;
+  };
+}
 interface Repository {
   full_name: string;
   description: string;
@@ -29,28 +37,37 @@ interface Repository {
   };
 }
 
-interface DetailsRouteParams extends Route<string> {
-  params: {
-    repositoryFullName: string;
+interface Issue {
+  id: number;
+  title: string;
+  html_url: string;
+  user: {
+    login: string;
   };
 }
 
 const Details: React.FC = () => {
   const [repository, setRepository] = useState<Repository | null>(null);
+  const [issues, setIssues] = useState<Issue[]>([]);
+
   const { params } = useRoute<DetailsRouteParams>();
 
   useEffect(() => {
-    async function getRepositoryData() {
-      const response = await api.get<Repository>(
-        `/repos/${params.repositoryFullName}`,
-      );
+    api
+      .get<Repository>(`/repos/${params.repositoryFullName}`)
+      .then(response => {
+        const repositoryData = response.data;
 
-      const repositoryData = response.data;
+        setRepository(repositoryData);
+      });
 
-      setRepository(repositoryData);
-    }
+    api
+      .get<Issue[]>(`/repos/${params.repositoryFullName}/issues`)
+      .then(response => {
+        const issuesData = response.data;
 
-    getRepositoryData();
+        setIssues(issuesData);
+      });
   }, [params.repositoryFullName]);
 
   return (
@@ -70,7 +87,6 @@ const Details: React.FC = () => {
         </RepositoryAvatar>
 
         <RepositoryFullName>{repository?.full_name}</RepositoryFullName>
-
         <RepositoryOwner>{repository?.owner.login}</RepositoryOwner>
 
         <RepositoryInfo>
@@ -90,6 +106,18 @@ const Details: React.FC = () => {
           </RepositoryIssues>
         </RepositoryInfo>
       </RepositoryHeader>
+
+      <FlatList
+        data={issues}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={issue => issue.html_url}
+        renderItem={({ item: issue }) => (
+          <IssueItem>
+            <IssueTitle>{issue.title}</IssueTitle>
+            <IssueUser>{issue.user.login}</IssueUser>
+          </IssueItem>
+        )}
+      />
     </Container>
   );
 };
