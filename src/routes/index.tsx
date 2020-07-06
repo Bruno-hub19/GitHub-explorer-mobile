@@ -4,6 +4,7 @@ import {
   TransitionPresets,
 } from '@react-navigation/stack';
 
+import HeaderSettingsButton from '../components/HeaderSettingsButton';
 import Dashboard from '../pages/Dashboard';
 import Details from '../pages/Details';
 
@@ -18,7 +19,14 @@ const Routes: React.FC = () => (
     <Stack.Screen
       name="Dashboard"
       component={Dashboard}
-      options={{ headerShown: false }}
+      options={{
+        headerTitle: '',
+        headerTransparent: true,
+        headerRight: () => <HeaderSettingsButton />,
+        headerRightContainerStyle: {
+          paddingRight: 20,
+        },
+      }}
     />
     <Stack.Screen
       name="Details"

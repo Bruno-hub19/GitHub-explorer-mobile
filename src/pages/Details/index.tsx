@@ -79,6 +79,8 @@ const Details: React.FC = () => {
               width: 120,
               height: 120,
               borderRadius: 120,
+              borderWidth: 3,
+              borderColor: '#f0f0f7',
             }}
             source={{
               uri: repository?.owner.avatar_url,
