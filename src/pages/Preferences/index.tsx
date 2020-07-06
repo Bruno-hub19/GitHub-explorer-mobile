@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Switch } from 'react-native';
 
-import { Container } from './styles';
+import { Container, OptionsContainer, ThemeOption } from './styles';
 
 const Preferences: React.FC = () => {
   const [isEnabled, setIsEnabled] = useState(false);
@@ -12,12 +12,15 @@ const Preferences: React.FC = () => {
 
   return (
     <Container>
-      <Switch
-        trackColor={{ false: '#767577', true: '#81b0ff' }}
-        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-        onValueChange={handleToggleSwitch}
-        value={isEnabled}
-      />
+      <OptionsContainer>
+        <ThemeOption>Dark Mode</ThemeOption>
+        <Switch
+          trackColor={{ false: '#a5a5a5', true: '#353535' }}
+          thumbColor="#f0f0f7"
+          onValueChange={handleToggleSwitch}
+          value={isEnabled}
+        />
+      </OptionsContainer>
     </Container>
   );
 };
