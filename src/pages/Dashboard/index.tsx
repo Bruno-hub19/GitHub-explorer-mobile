@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { Image, FlatList } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import Icon from 'react-native-vector-icons/Feather';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
+import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
+import Icon from 'react-native-vector-icons/Feather';
 
 import api from '../../services/api';
 import Input from '../../components/Input';
@@ -33,6 +34,8 @@ interface SearhRepositoryFormData {
 
 const Dashboard: React.FC = () => {
   const [repositories, setRepositories] = useState<Repository[]>([]);
+
+  const navigation = useNavigation();
 
   const formRef = useRef<FormHandles>(null);
 
@@ -94,7 +97,7 @@ const Dashboard: React.FC = () => {
           />
 
           <IconButton onPress={() => formRef.current?.submitForm()}>
-            <Icon name="search" size={20} color="#6d6666" />
+            <Icon name="search" size={20} color="#4e4e4e" />
           </IconButton>
         </Content>
       </Form>
@@ -105,7 +108,13 @@ const Dashboard: React.FC = () => {
         showsVerticalScrollIndicator={false}
         keyExtractor={repository => repository.full_name}
         renderItem={({ item: repository }) => (
-          <RepositoryItem>
+          <RepositoryItem
+            onPress={() =>
+              navigation.navigate('Details', {
+                repositoryFullName: repository.full_name,
+              })
+            }
+          >
             <Image
               style={{
                 width: 60,

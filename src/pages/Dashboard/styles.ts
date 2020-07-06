@@ -18,11 +18,13 @@ export const RepositoryItem = styled.TouchableOpacity`
   width: 100%;
   height: 95px;
   padding: 0 10px;
-  border-radius: 5px;
   flex-direction: row;
   align-items: center;
   background: #252323;
   margin-bottom: 10px;
+  border-radius: 5px;
+  border-left-width: 2px;
+  border-color: #a5a5a5;
 `;
 
 export const RepositoryItemText = styled.View`
@@ -33,7 +35,7 @@ export const RepositoryItemText = styled.View`
 `;
 
 export const RepositoryName = styled.Text`
-  color: #f0f0f7;
+  color: #d7d7d7;
   font-size: 15px;
   font-family: 'Roboto-Medium';
 `;

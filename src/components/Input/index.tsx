@@ -36,10 +36,10 @@ const Input: React.FC<InputProps> = ({ name, icon, ...rest }) => {
 
   return (
     <Container>
-      <Icon name={icon} color="#6d6666" size={20} />
+      <Icon name={icon} color="#4e4e4e" size={20} />
       <TextInput
         ref={inputElementRef}
-        placeholderTextColor="#6d6666"
+        placeholderTextColor="#4e4e4e"
         keyboardAppearance="dark"
         defaultValue={defaultValue}
         onChangeText={value => {
