@@ -2,12 +2,12 @@ import styled from 'styled-components/native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
 export const Container = styled.View`
-  width: 100%;
+  width: 80%;
   height: 60px;
   background: #252323;
   padding: 0 16px;
   border-radius: 5px;
-  margin-top: 25px;
+  margin: 30px 0;
   flex-direction: row;
   align-items: center;
 `;
