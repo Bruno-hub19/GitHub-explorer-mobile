@@ -10,19 +10,20 @@ export const Container = styled.View`
 export const OptionsContainer = styled.View`
   width: 100%;
   height: 70px;
-  border-radius: 5px;
   padding: 0 20px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
-  border-top-width: 1px;
-  border-bottom-width: 1px;
-  border-color: ${props => props.theme.colors.color6};
+  /* border-radius: 5px; */
+  border-left-width: 2px;
+  border-color: #a5a5a5;
 `;
 
 export const ThemeOption = styled.Text`
   color: ${props => props.theme.colors.color3};
   font-family: 'Roboto-Medium';
-  font-size: 16px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 `;

@@ -19,7 +19,7 @@ const Preferences: React.FC = () => {
       <OptionsContainer>
         <ThemeOption>Dark Mode</ThemeOption>
         <Switch
-          trackColor={{ false: '#a5a5a5', true: '#353535' }}
+          trackColor={{ false: '#a5a5a5', true: '#232325' }}
           thumbColor="#f0f0f7"
           onValueChange={handleToggleSwitch}
           value={isEnabled}
