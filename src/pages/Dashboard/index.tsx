@@ -5,11 +5,13 @@ import { FormHandles } from '@unform/core';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Icon from 'react-native-vector-icons/Feather';
+import { useTheme } from 'styled-components/native';
 
 import api from '../../services/api';
 import Input from '../../components/Input';
 import IconButton from '../../components/IconButton';
-import logoImg from '../../assets/logo.png';
+import logoImgWhite from '../../assets/logo.png';
+import logoImgDark from '../../assets/logo_dark.png';
 import {
   Container,
   Content,
@@ -38,6 +40,8 @@ const Dashboard: React.FC = () => {
   const navigation = useNavigation();
 
   const formRef = useRef<FormHandles>(null);
+
+  const { title } = useTheme();
 
   const handleSubmit = useCallback(
     async (data: SearhRepositoryFormData, { reset }) => {
@@ -81,7 +85,7 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <Image source={logoImg} />
+      <Image source={title === 'dark' ? logoImgWhite : logoImgDark} />
 
       <Form ref={formRef} onSubmit={handleSubmit}>
         <Content>
@@ -112,8 +116,7 @@ const Dashboard: React.FC = () => {
             onPress={() =>
               navigation.navigate('Details', {
                 repositoryFullName: repository.full_name,
-              })
-            }
+              })}
           >
             <Image
               style={{

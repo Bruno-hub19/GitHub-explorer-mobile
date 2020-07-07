@@ -3,14 +3,14 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   padding: 50px 20px 0px;
-  background: #353535;
+  background: ${props => props.theme.colors.background};
   align-items: center;
 `;
 
 export const RepositoryHeader = styled.View`
   width: 100%;
   padding: 10px 0;
-  border-bottom-width: 2px;
+  border-bottom-width: 1px;
   border-color: #a5a5a5;
   align-items: center;
 `;
@@ -24,7 +24,7 @@ export const RepositoryAvatar = styled.View`
 `;
 
 export const RepositoryFullName = styled.Text`
-  color: #f0f0f7;
+  color: ${props => props.theme.colors.text};
   font-family: 'Roboto-Medium';
   font-size: 20px;
   text-align: center;
@@ -61,14 +61,14 @@ export const EntityTitle = styled.Text`
 
 export const EntityCount = styled.Text`
   font-family: 'Roboto-Medium';
-  color: #f0f0f7;
+  color: ${props => props.theme.colors.text};
   font-size: 22px;
 `;
 
 export const IssueItem = styled.TouchableOpacity`
   width: 100%;
   padding: 10px;
-  background: #232325;
+  background: ${props => props.theme.colors.primary};
   border-radius: 5px;
   margin-bottom: 10px;
   justify-content: center;
@@ -77,7 +77,7 @@ export const IssueItem = styled.TouchableOpacity`
 
 export const IssueTitle = styled.Text`
   font-family: 'Roboto-Medium';
-  color: #f0f0f7;
+  color: ${props => props.theme.colors.text};
   font-size: 16px;
   margin-bottom: 10px;
 `;

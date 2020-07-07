@@ -4,7 +4,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 export const Container = styled.View`
   width: 80%;
   height: 60px;
-  background: #252323;
+  background: ${props => props.theme.colors.primary};
   padding: 0 16px;
   border-radius: 5px;
   margin: 30px 0;
@@ -14,7 +14,7 @@ export const Container = styled.View`
 
 export const TextInput = styled.TextInput`
   flex: 1;
-  color: #f0f0f7;
+  color: ${props => props.theme.colors.text};
   font-size: 16px;
   font-family: 'Roboto-Regular';
 `;

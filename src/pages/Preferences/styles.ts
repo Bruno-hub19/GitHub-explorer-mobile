@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   padding: 50px 20px 0px;
-  background: #353535;
+  background: ${props => props.theme.colors.background};
   align-items: center;
 `;
 
@@ -16,11 +16,11 @@ export const OptionsContainer = styled.View`
   justify-content: space-between;
   align-items: center;
   margin-top: 30px;
-  background: #232325;
+  background: ${props => props.theme.colors.primary};
 `;
 
 export const ThemeOption = styled.Text`
-  color: #f0f0f7;
+  color: ${props => props.theme.colors.text};
   font-family: 'Roboto-Medium';
   font-size: 16px;
 `;

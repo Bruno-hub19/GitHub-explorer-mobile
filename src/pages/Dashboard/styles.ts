@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   padding: 50px 20px 0px;
-  background: #353535;
+  background: ${props => props.theme.colors.background};
   align-items: center;
 `;
 
@@ -20,7 +20,7 @@ export const RepositoryItem = styled.TouchableOpacity`
   padding: 0 10px;
   flex-direction: row;
   align-items: center;
-  background: #252323;
+  background: ${props => props.theme.colors.primary};
   margin-bottom: 10px;
   border-radius: 5px;
   border-left-width: 2px;
@@ -35,7 +35,7 @@ export const RepositoryItemText = styled.View`
 `;
 
 export const RepositoryName = styled.Text`
-  color: #d7d7d7;
+  color: ${props => props.theme.colors.text};
   font-size: 15px;
   font-family: 'Roboto-Medium';
 `;

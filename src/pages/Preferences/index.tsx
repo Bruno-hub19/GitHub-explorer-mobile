@@ -1,14 +1,18 @@
 import React, { useState, useCallback } from 'react';
 import { Switch } from 'react-native';
 
+import { useCustomTheme } from '../../hooks/customTheme';
 import { Container, OptionsContainer, ThemeOption } from './styles';
 
 const Preferences: React.FC = () => {
-  const [isEnabled, setIsEnabled] = useState(false);
+  const { toggleTheme, themeInUse } = useCustomTheme();
+
+  const [isEnabled, setIsEnabled] = useState(themeInUse.title === 'dark');
 
   const handleToggleSwitch = useCallback(() => {
+    toggleTheme();
     setIsEnabled(previousState => !previousState);
-  }, []);
+  }, [toggleTheme]);
 
   return (
     <Container>
