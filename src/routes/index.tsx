@@ -3,8 +3,8 @@ import {
   createStackNavigator,
   TransitionPresets,
 } from '@react-navigation/stack';
-import { useTheme } from 'styled-components/native';
 
+import { useCustomTheme } from '../hooks/customTheme';
 import HeaderSettingsButton from '../components/HeaderSettingsButton';
 
 import Dashboard from '../pages/Dashboard';
@@ -14,7 +14,7 @@ import Preferences from '../pages/Preferences';
 const Stack = createStackNavigator();
 
 const Routes: React.FC = () => {
-  const { colors } = useTheme();
+  const { themeInUse } = useCustomTheme();
 
   return (
     <Stack.Navigator
@@ -39,7 +39,7 @@ const Routes: React.FC = () => {
         component={Details}
         options={{
           headerTransparent: true,
-          headerTintColor: colors.text,
+          headerTintColor: themeInUse.colors.color3,
         }}
       />
       <Stack.Screen
@@ -47,7 +47,7 @@ const Routes: React.FC = () => {
         component={Preferences}
         options={{
           headerTransparent: true,
-          headerTintColor: colors.text,
+          headerTintColor: themeInUse.colors.color3,
         }}
       />
     </Stack.Navigator>

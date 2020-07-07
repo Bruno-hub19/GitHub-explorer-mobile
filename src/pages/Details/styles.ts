@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 export const Container = styled.View`
   flex: 1;
   padding: 50px 20px 0px;
-  background: ${props => props.theme.colors.background};
+  background: ${props => props.theme.colors.color1};
   align-items: center;
 `;
 
@@ -24,7 +24,7 @@ export const RepositoryAvatar = styled.View`
 `;
 
 export const RepositoryFullName = styled.Text`
-  color: ${props => props.theme.colors.text};
+  color: ${props => props.theme.colors.color3};
   font-family: 'Roboto-Medium';
   font-size: 20px;
   text-align: center;
@@ -61,14 +61,14 @@ export const EntityTitle = styled.Text`
 
 export const EntityCount = styled.Text`
   font-family: 'Roboto-Medium';
-  color: ${props => props.theme.colors.text};
+  color: ${props => props.theme.colors.color3};
   font-size: 22px;
 `;
 
 export const IssueItem = styled.TouchableOpacity`
   width: 100%;
   padding: 10px;
-  background: ${props => props.theme.colors.primary};
+  background: ${props => props.theme.colors.color2};
   border-radius: 5px;
   margin-bottom: 10px;
   justify-content: center;
@@ -77,7 +77,7 @@ export const IssueItem = styled.TouchableOpacity`
 
 export const IssueTitle = styled.Text`
   font-family: 'Roboto-Medium';
-  color: ${props => props.theme.colors.text};
+  color: ${props => props.theme.colors.color3};
   font-size: 16px;
   margin-bottom: 10px;
 `;

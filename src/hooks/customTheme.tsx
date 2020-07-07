@@ -8,10 +8,12 @@ interface ThemeObjectFormat {
   title: string;
 
   colors: {
-    primary: string;
-    secondary: string;
-    background: string;
-    text: string;
+    color1: string;
+    color2: string;
+    color3: string;
+    color4: string;
+    color5: string;
+    color6: string;
   };
 }
 
